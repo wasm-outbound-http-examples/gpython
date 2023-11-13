@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HTTP request for GPython</title>
+    <script type="text/javascript" src="wasm_exec.js"></script>
+</head>
+<body>
+<h2>HTTP Request from inside WASM using GPython and self-made httpgetlib package</h2>
+
+<p>This example uses our own <a href="https://github.com/wasm-outbound-http-examples/gpython/blob/main/browser-and-deno/main.go#L27">httpgetlib</a> package.</p>
+<p>See the output in browser developer console.</p>
+
+<p>Actual code:</p>
+<pre>
+
+import httpclient
+
+print(httpclient.Get('https://httpbin.org/anything'))
+
+</pre>
+<script type="text/javascript">
+    const go = new Go();
+    WebAssembly.instantiateStreaming(fetch('main.wasm'), go.importObject).then((result) => {
+        go.run(result.instance);
+    });
+</script>
+<footer><small>Created for (wannabe-awesome) <a href="https://github.com/vasilev/HTTP-request-from-inside-WASM">list</a></small></footer>
+</body>
+</html>
