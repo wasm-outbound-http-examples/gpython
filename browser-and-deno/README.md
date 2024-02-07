@@ -2,7 +2,7 @@
 
 ## Instructions for this devcontainer
 
-Tested with Go 1.21.4, Bun 1.0.13, Deno 1.38.2, gpython [e9cde5fc](https://github.com/go-python/gpython/commit/e9cde5fcf8e89407c50c12534c1b14bb1f840ffa).
+Tested with Go 1.22.0, Bun 1.0.26, Deno 1.40.4, gpython [23c0aa29](https://github.com/go-python/gpython/commit/23c0aa29cc22afb51a5985f2b74ff6464675d1e8).
 
 ### Preparation
 
@@ -17,19 +17,15 @@ Tested with Go 1.21.4, Bun 1.0.13, Deno 1.38.2, gpython [e9cde5fc](https://githu
 cd browser-and-deno
 ```
 
-Since current (early Nov 2023) version of gpython has some WASM incompatibilities yet,
-need to use source distribution of gpython and apply a patch to it.
-
 2. Clone gpython repo:
 ```sh
 git clone --depth=1 https://github.com/go-python/gpython
 ```
 
-3. `cd` into the folder of gpython sources and apply a provided patch:
+3. `cd` into the folder of gpython sources:
 
 ```sh
 cd gpython
-git apply ../gpython.patch
 ```
 
 4. Make directory for WASM example, `cd` into it and copy provided code there:
@@ -65,7 +61,7 @@ python3 -m http.server
 Codespace will show you "Open in Browser" button. Just click that button or
 obtain web address from "Forwarded Ports" tab.
 
-2. As `index.html` and a **14.5M**-sized `main.wasm` are loaded into browser, refer to browser developer console
+2. As `index.html` and a **15.5M**-sized `main.wasm` are loaded into browser, refer to browser developer console
    to see the results.
 
 ### Test with Node.js
